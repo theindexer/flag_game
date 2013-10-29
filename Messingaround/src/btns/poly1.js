@@ -160,8 +160,22 @@ this.down_LF=function(){
 }
 /*========================================================================================================*/
 //draw the over state
-this.over_LF=function(){
-   
+this.over_LF=function(e){
+
+    var xpos = e.pageX-400;
+	var ypos = e.pageY-400;
+	console.log(xpos);
+	var coords = [[0,0],[100,50],[50,100],[0,90]];
+	
+
+  for (var c = false, i = -1, l = coords.length, j = l - 1; ++i < l; j = i)
+  ((coords[i][1] <= ypos && ypos < coords[j][1]) || (coords[j][1] <= ypos && ypos < coords[i][1]))
+  && (xpos < (coords[j][0] - coords[i][0]) * (ypos - coords[i][1]) / (coords[j][1] - coords[i][1]) + coords[i][0])
+  && (c = !c);
+
+	if(c){
+	
+	
     var ctx = this.htmlElement.getContext("2d");
     var color1 = "rgb(145, 223, 255)";
     var color2 = "rgb(130, 130, 130)";
@@ -187,10 +201,12 @@ this.over_LF=function(){
     ctx.fillStyle = color4;
     ctx.fillText(this.buttonString, 10.4, 29.0);
     ctx.restore();
+	}
 }
 /*========================================================================================================*/
 //draw the mouseout state (out state is the same as the up state)
 this.out_LF=function(){
+
     var ctx = this.htmlElement.getContext("2d");
     var color1 = "rgb(145, 207, 235)";
     var color2 = "rgb(130, 130, 130)";
@@ -247,7 +263,8 @@ this.CreateButtonEvents=function(c){
 if(window.platformFlag=="DSK"&&window.browserFlag=="NOT_IE"){
 this.htmlElement.addEventListener("mousedown",function(e){c.down_LF();c.downFunction(e);});
 this.htmlElement.addEventListener("mouseup",function(e){c.over_LF();c.upFunction(e);});
-this.htmlElement.addEventListener("mouseover",function(e){c.over_LF();c.overFunction(e);});
+this.htmlElement.addEventListener("mousemove",function(e){c.over_LF(e);c.overFunction(e);});
+//this.htmlElement.addEventListener("mousemoved",function(e){c.over_LF(e);c.overFunction(e);});
 this.htmlElement.addEventListener("mouseout",function(e){c.out_LF();c.outFunction(e);});
 }
 
@@ -255,7 +272,7 @@ this.htmlElement.addEventListener("mouseout",function(e){c.out_LF();c.outFunctio
 if(window.platformFlag=="DSK"&&window.browserFlag=="IE"){
 this.htmlElement.attachEvent('onmousedown',function(e){c.down_LF();c.downFunction(e);});
 this.htmlElement.attachEvent('onmouseup',function(e){c.over_LF();c.upFunction(e);});
-this.htmlElement.attachEvent('onmouseover',function(e){c.over_LF();c.overFunction(e);});
+this.htmlElement.attachEvent('onmouseover',function(e){c.over_LF(e);c.overFunction(e);});
 this.htmlElement.attachEvent('onmouseout',function(e){c.out_LF();c.outFunction(e);});
 }
 
