@@ -1,7 +1,7 @@
 function backView(canvas,canvas2){
 
 var ctx = canvas.getContext("2d");
-
+/*
  // background/Path
       ctx.save();
       ctx.beginPath();
@@ -665,13 +665,19 @@ var ctx = canvas.getContext("2d");
       ctx.lineTo(974.0, 483.5);
       ctx.closePath();
       ctx.fillStyle = "rgb(255, 255, 255)";
+	  
       ctx.fill();
 
       // background/Group/PoweredByLVHori4cfor bkgrnds2psd
 
       // background/Group/PoweredByLVHori4cfor bkgrnds2psd/Layer 1
       ctx.save();
-      ctx.drawImage(document.getElementById("image1"), 794.1, 436.4);
+      //ctx.drawImage(document.getElementById("image1"), 794.1, 436.4);
+	  */
+	  ctx.font = "Bold 50.0px 'Arial'";
+      ctx.fillStyle = "rgb(45, 48, 144)";
+      ctx.fillText("Flag Game", 270, 60);
+	  ctx.save();
       ctx.restore();
       ctx.restore();
       ctx.restore();

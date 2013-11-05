@@ -2,7 +2,7 @@
 ** general purpose button. 
 ** 
 */
-function poly1(left,top){
+function polyclass(left,top,coordsx,coordsy,w,h,backgroundcolor,designation){
 
 //create a canvas element for this object
 //all library fnction have an htmlElement member though the type of element may vary depedning pn the object
@@ -10,8 +10,13 @@ this.htmlElement = document.createElement("canvas");
 
 //define default button values
 //height and width are predefined for this button
-this.height = 100;
-this.width  = 100;
+this.height = h;
+this.width  = w;
+this.letter = designation;
+this.bgcolor = backgroundcolor;
+
+this.cx = coordsx;
+this.cy = coordsy;
 
 //button is poisitoned upon instantiation
 this.top    = top;
@@ -52,12 +57,23 @@ this.up_LF=function(){
     var color4 = "rgb(30, 103, 85)";
 
     ctx.save();
-    ctx.fillStyle = color1;//background color
+    ctx.fillStyle = this.bgcolor;//background color
     ctx.beginPath();
-	ctx.moveTo(0, 0);
-	ctx.lineTo(100,50);
-	ctx.lineTo(50, 100);
-	ctx.lineTo(0, 90);
+	ctx.strokeStyle = '#000000';
+	ctx.lineWidth = 3;
+	var i = 0;
+	for(i=0; i < this.cx.length; i++)
+	{
+		if(i==0)
+		{
+			ctx.moveTo(this.cx[i],this.cy[i]);
+		}
+		else
+		{
+			ctx.lineTo(this.cx[i],this.cy[i]);
+		}
+	}
+	
 	ctx.closePath();
 	ctx.fill();
 
@@ -141,12 +157,20 @@ this.down_LF=function(){
 
     ctx.save();
 
-    ctx.fillStyle = color1;//background color
+    ctx.fillStyle = this.bgcolor;//background color
     ctx.beginPath();
-	ctx.moveTo(0, 0);
-	ctx.lineTo(100,50);
-	ctx.lineTo(50, 100);
-	ctx.lineTo(0, 90);
+	var i = 0;
+	for(i=0; i < this.cx.length; i++)
+	{
+		if(i==0)
+		{
+			ctx.moveTo(this.cx[i],this.cy[i]);
+		}
+		else
+		{
+			ctx.lineTo(this.cx[i],this.cy[i]);
+		}
+	}
 	ctx.closePath();
 	ctx.fill();
 
@@ -162,15 +186,15 @@ this.down_LF=function(){
 //draw the over state
 this.over_LF=function(e){
 
-    var xpos = e.pageX-400;
-	var ypos = e.pageY-400;
+    var xpos = e.pageX-this.left;
+	var ypos = e.pageY-this.top;
 	console.log(xpos);
 	var coords = [[0,0],[100,50],[50,100],[0,90]];
 	
 
-  for (var c = false, i = -1, l = coords.length, j = l - 1; ++i < l; j = i)
-  ((coords[i][1] <= ypos && ypos < coords[j][1]) || (coords[j][1] <= ypos && ypos < coords[i][1]))
-  && (xpos < (coords[j][0] - coords[i][0]) * (ypos - coords[i][1]) / (coords[j][1] - coords[i][1]) + coords[i][0])
+  for (var c = false, i = -1, l = this.cx.length, j = l - 1; ++i < l; j = i)
+  ((this.cy[i] <= ypos && ypos < this.cy[j]) || (this.cy[j] <= ypos && ypos < this.cy[i]))
+  && (xpos < (this.cx[j] - this.cx[i]) * (ypos - this.cy[i]) / (this.cy[j] - this.cy[i]) + this.cx[i])
   && (c = !c);
 
 	
@@ -190,15 +214,27 @@ this.over_LF=function(e){
     ctx.fillStyle = black;//background color
 	}
 	else{
-	ctx.fillStyle = maincolor;//background color
+	ctx.fillStyle = this.bgcolor;//background color
 	}
+	ctx.strokeStyle = '#ff0000';
+	ctx.lineWidth = 3;
     ctx.beginPath();
-	ctx.moveTo(0, 0);
-	ctx.lineTo(100,50);
-	ctx.lineTo(50, 100);
-	ctx.lineTo(0, 90);
+	var i = 0;
+	for(i=0; i < this.cx.length; i++)
+	{
+		if(i==0)
+		{
+			ctx.moveTo(this.cx[i],this.cy[i]);
+		}
+		else
+		{
+			ctx.lineTo(this.cx[i],this.cy[i]);
+		}
+	}
 	ctx.closePath();
 	ctx.fill();
+	ctx.stroke();
+
 
     
     // run/Run
@@ -218,17 +254,35 @@ this.out_LF=function(){
     var color2 = "rgb(130, 130, 130)";
     var color3 = "rgb(240, 240, 240)";
     var color4 = "rgb(30, 103, 85)";
+	
+	
+	
+	
+	
 
     ctx.save();
-    ctx.fillStyle = color1;//background color
+    ctx.fillStyle = this.bgcolor;//background color
     ctx.beginPath();
-	ctx.moveTo(0, 0);
-	ctx.lineTo(100,50);
-	ctx.lineTo(50, 100);
-	ctx.lineTo(0, 90);
+	ctx.strokeStyle = '#000000';
+	ctx.lineWidth = 3;
+	var i = 0;
+	for(i=0; i < this.cx.length; i++)
+	{
+		if(i==0)
+		{
+			ctx.moveTo(this.cx[i],this.cy[i]);
+		}
+		else
+		{
+			ctx.lineTo(this.cx[i],this.cy[i]);
+		}
+	}
 	ctx.closePath();
 	ctx.fill();
-
+	ctx.stroke();
+	ctx.font = "Bold 30.0px 'Arial'";
+      ctx.fillStyle = "rgb(45, 48, 144)";
+      ctx.fillText(this.letter, 10, 30);
    
     // run/Run
     ctx.restore();

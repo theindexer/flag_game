@@ -42,22 +42,22 @@ this.build = function(){
 	
 	
 	this.grid = new grid();
-	this.parent.add(this.grid);
+	//this.parent.add(this.grid);
 
 	this.mazeView = new mazeView();
-	this.parent.add(this.mazeView);
+	//this.parent.add(this.mazeView);
 
 	this.keyPad = new keyPad();
-	this.parent.add(this.keyPad);
+	//this.parent.add(this.keyPad);
 	
 	this.dispInView = new dispInView(this.keyPad);
-	this.parent.add(this.dispInView);
+	//this.parent.add(this.dispInView);
 	
 	this.X_zeroIn = new ergoInput(585,34,55,20,this.keyPad);
-	this.parent.add(this.X_zeroIn);
+	//this.parent.add(this.X_zeroIn);
 	
 	this.Y_zeroIn = new ergoInput(665,34,55,20,this.keyPad);
-	this.parent.add(this.Y_zeroIn);
+	//this.parent.add(this.Y_zeroIn);
 	
 	
 	this.dispXin = new Array();
@@ -65,74 +65,78 @@ this.build = function(){
 	
 	
 	this.X_finalIn = new ergoInput(585,395,55,20,this.keyPad);
-	this.parent.add(this.X_finalIn);
+	//this.parent.add(this.X_finalIn);
 	
 	this.Y_finalIn = new ergoInput(665,395,55,20,this.keyPad);
-	this.parent.add(this.Y_finalIn);
+	//this.parent.add(this.Y_finalIn);
 	
 	
 	
 	this.totalDispXout = new output(590,456,55,20);
-	this.parent.add(this.totalDispXout);
+	//this.parent.add(this.totalDispXout);
 	this.totalDispYout = new output(670,456,55,20);
-	this.parent.add(this.totalDispYout);
+	//this.parent.add(this.totalDispYout);
 	
 	
 	this.curentPosXout = new output(807,100,55,20);
-	this.parent.add(this.curentPosXout);
+	//this.parent.add(this.curentPosXout);
 	this.curentPosYout = new output(884,100,55,20);
-	this.parent.add(this.curentPosYout);
+	//this.parent.add(this.curentPosYout);
 
 	this.totalDistOut = new output(420,455,60,20);
-	this.parent.add(this.totalDistOut);	
+	//this.parent.add(this.totalDistOut);	
 	
 	this.setOriginBtn = new setOriginButton(425,30);
-	this.parent.add(this.setOriginBtn);
+	//this.parent.add(this.setOriginBtn);
 	
 	this.runBtn = new runButton(420,100);
-	this.parent.add(this.runBtn);
+	//this.parent.add(this.runBtn);
 	
 	this.testBtn = new button(420,240);
 	this.testBtn.buttonString = "Test";
 	this.testBtn.out_LF();
-	this.parent.add(this.testBtn);
+	//this.parent.add(this.testBtn);
 	
 	this.resetBtn = new resetButton(420,310);
-	this.parent.add(this.resetBtn);
+	//this.parent.add(this.resetBtn);
 	
 	this.printBtn = new printButton(420,380);
-	this.parent.add(this.printBtn);
+	//this.parent.add(this.printBtn);
 	////////////////////////////////////////
-	this.sq1 = new square(100,100);
-	this.parent.add(this.sq1);
-	this.sq1 = new square(200,100);
-	this.parent.add(this.sq1);
-	this.sq1 = new square(300,100);
-	this.parent.add(this.sq1);
-	
-	this.sq1 = new square(100,200);
-	this.parent.add(this.sq1);
-	this.sq1 = new square(200,200);
-	this.parent.add(this.sq1);
-	this.sq1 = new square(300,200);
-	this.parent.add(this.sq1);
-	
-	this.sq1 = new square(100,300);
-	this.parent.add(this.sq1);
-	this.sq1 = new square(200,300);
-	this.parent.add(this.sq1);
-	this.sq1 = new square(300,300);
-	this.parent.add(this.sq1);
+
 	///////////////////////////////////////
+	/*
 	this.p1 = new poly1(400,400);
 	this.parent.add(this.p1);
-	
+	this.p2 = new polyclass(500,400,[0,100,50,0],[0,50,100,90]);
+	this.parent.add(this.p2);
+	*/
+	this.p1 = new polyclass(100,100,[0,100,100,0],[0,0,600,600],100,600,'#ffffff','a');
+	this.parent.add(this.p1);
+	this.p1 = new polyclass(600,100,[0,100,100,0],[0,0,600,600],100,600,'#ffffff','b');
+	this.parent.add(this.p1);
+	this.p1 = new polyclass(200,100,[0,400,400,0],[0,0,100,100],400,100,'#ffffff','c');
+	this.parent.add(this.p1);
+	this.p1 = new polyclass(200,600,[0,400,400,0],[0,0,100,100],400,100,'#ffffff','d');
+	this.parent.add(this.p1);
+	this.p1 = new polyclass(200,200,[0,200,200,0],[0,0,200,200],200,200,'#ffffff','e');
+	this.parent.add(this.p1);
+	this.p1 = new polyclass(400,200,[0,200,200,0],[0,0,400,400],200,400,'#ffffff','f');
+	this.parent.add(this.p1);
+	this.p1 = new polyclass(200,400,[0,100,100,0],[0,0,100,100],100,100,'#ffffff','g');
+	this.parent.add(this.p1);
+	this.p1 = new polyclass(300,400,[0,100,100,0],[0,0,100,100],100,100,'#ffffff','h');
+	this.parent.add(this.p1);
+	this.p1 = new polyclass(200,500,[0,100,100,0],[0,0,100,100],100,100,'#ffffff','i');
+	this.parent.add(this.p1);
+	this.p1 = new polyclass(300,500,[0,100,100,0],[0,0,100,100],100,100,'#ffffff','j');
+	this.parent.add(this.p1);
 	
 	
 	this.programBtn = new button(420,170);
 	this.programBtn.buttonString = "Program";
 	this.programBtn.out_LF();
-	this.parent.add(this.programBtn);
+	//this.parent.add(this.programBtn);
 	
 	this.saveButton = new saveButton(425,170);
 	//this.parent.add(this.saveButton);
@@ -145,11 +149,13 @@ this.build = function(){
 	
 	
 	this.inRec = new inputRecieiver();
-	this.parent.add(this.inRec);
+	//this.parent.add(this.inRec);
 	
 	
+	/*
 	this.mazeSlct = new mazeSelection(90,437,this);
 	this.parent.add(this.mazeSlct);
+	*/
 	
 	this.graphEdit = new graphEditView(this.keyPad);
 	this.parent.add(this.graphEdit);
