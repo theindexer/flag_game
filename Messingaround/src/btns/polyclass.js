@@ -18,6 +18,13 @@ this.bgcolor = backgroundcolor;
 this.cx = coordsx;
 this.cy = coordsy;
 
+this.area = 0.0;
+    for(i=0; i< this.cx.length; i++){
+	deltax = this.cx[i+1]-this.cx[i]
+	deltay = this.cy[i+1]-this.cy[i];
+	this.area = this.area + this.cx[i]*deltax - this.cy[i]*deltay
+    }
+this.area = .5*this.area
 //button is poisitoned upon instantiation
 this.top    = top;
 this.left   = left;
