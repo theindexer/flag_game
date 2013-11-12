@@ -11,12 +11,12 @@ var parent = document.getElementById("parent");
 
 
 var background = document.createElement("canvas");
-background.setAttribute("width","980");
-background.setAttribute("height","490");
+background.setAttribute("width","1100");
+background.setAttribute("height","750");
 background.style.position = "absolute";
 background.style.top = "0px";
 background.style.left = "0px";
-//background.style.backgroundColor = "#CC99CC";
+background.style.backgroundColor = "#BDBDBD";
 parent.appendChild(background);//move down
 //-------------------------------------------
 
