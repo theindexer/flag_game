@@ -18,7 +18,7 @@ function timer(){
 	clearInterval(counter);
 	return;
     }
-    }
+}
 function startTimer(){
 
     if (clicked === false){
@@ -31,8 +31,13 @@ function startTimer(){
 function stopTimer(){
  
     clearInterval(counter);
+    document.getElementById("timer").innerHTML = "Time's up!";
     clicked = false;
     count = 180;
 }
 
+function pauseTimer(){
+    clearInterval(counter);
+    clicked = false;
+}
 			  
