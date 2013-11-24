@@ -32,10 +32,15 @@
 // power to decide on whether something not stated in the rules
 // is allowed (ie can multiple teams inhabit a single area ect)
 
-Area = function(areaname, areasize) {
+// An area is a part of the flag that has a predetermined area and
+// it can be "owned" by any number of teams.
+
+// areaName is a string that contains the name of the area
+// areaSize is an int that tells us the size of the area
+Area = function(areaName, areaSize) {
 	var ownedByTeams = [];
-	var name = areaname;
-	var size = areasize;
+	var name = areaName;
+	var size = areaSize;
 
 	return {
 		setTeams: function(teams) {ownedByTeams = teams;}, // adds a team
@@ -45,8 +50,10 @@ Area = function(areaname, areasize) {
 	}
 }
 
+// A flag is a collection of areas
+// flagAreas is a list of areas
 Flag = function(flagAreas) {
-	var areas = flagAreas;
+	var areas = flagAreas; // 
 	var state = "Game Not Started";
 	return {
 		// returns an associative array containing teams and the sums of the sizes of all areas that team owns
@@ -63,6 +70,15 @@ Flag = function(flagAreas) {
 			}
 
 			return teamAreas;
+		},
+
+		// team names is a list of the team's names that will be added to the area
+		setTeamsToArea: function(teamNames, areaName) {
+			for (area in areas){
+				if (area.getName() === areaName){
+					area.setTeams(teamNames);
+				}
+			}
 		},
 	}
 }
