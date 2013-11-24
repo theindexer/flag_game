@@ -11,7 +11,7 @@ var parent = document.getElementById("parent");
 
 
 var background = document.createElement("canvas");
-background.setAttribute("width","750");
+background.setAttribute("width","700");
 background.setAttribute("height","750");
 background.style.position = "absolute";
 background.style.top = "0px";
