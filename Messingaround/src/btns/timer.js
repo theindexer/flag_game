@@ -37,7 +37,14 @@ function stopTimer(){
 }
 
 function pauseTimer(){
-    clearInterval(counter);
-    clicked = false;
+    if(clicked) {
+      clearInterval(counter);
+      clicked = false;
+      document.getElementById("pause_btn").innerHTML = "Resume";
+    } else {
+	counter = setInterval("timer()", 1000);
+	clicked = true;
+        document.getElementById("pause_btn").innerHTML = "Pause";
+    }
 }
 			  
