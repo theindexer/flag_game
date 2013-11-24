@@ -55,7 +55,34 @@
 <button  style= "position: absolute; top: 250px; left: 750px" onclick="startTimer()">Start round</button>
 <button  id="pause_btn" style= "position: absolute; top: 250px; left: 860px; width:80px" onclick="pauseTimer()">Pause</button>
 <button  style= "position: absolute; top: 250px; left: 950px" onclick="stopTimer()">Stop round</button>
-<h1  style= "position: absolute; top: 150px; left: 750px" id="timer">Time remaining: 3:00</h>
+<h1  style= "position: absolute; top: 150px; left: 750px" id="timer">Time remaining: 3:00</h1>
+
+<div id="checkboxes" align="left" style= "position: absolute; top: 450px; left: 750px">
+	<font size="5"> <b>Team</b> <br><br>
+	<input type="checkbox" name="Team1" value="Red"> Red <br>
+	<input type="checkbox" name="Team2" value="Blue"> Blue <br>
+	<input type="checkbox" name="Team3" value="Green"> Green <br>
+	<input type="checkbox" name="Team4" value="Yellow"> Yellow <br>
+	<br>
+	<input type="button" name="fillAreaButton" value="Fill Area">
+</div>
+
+<div id="dropdown" align="left" style= "position: absolute; top: 450px; left: 900px">
+	<b>Area</b> <br><br>
+	<select name="teamSelect" size="1">
+
+		<option value = "A">A</option>
+		<option value = "B">B</option>
+		<option value = "C">C</option>
+		<option value = "D">D</option>
+		<option value = "E">E</option>
+		<option value = "F">F</option>
+		<option value = "G">G</option>
+		<option value = "H">H</option>
+		<option value = "I">I</option>
+		<option value = "J">J</option>
+	</select>
+</div>
 
 </body>
 </html>
