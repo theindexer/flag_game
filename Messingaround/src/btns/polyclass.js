@@ -272,10 +272,6 @@ this.down_LF=function(){
     var color3 = "rgb(240, 240, 240)";
     var color4 = "rgb(30, 103, 85)";
 	
-	
-	
-	
-	
 
     ctx.save();
     this.bgcolor = color4;

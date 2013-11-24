@@ -131,7 +131,7 @@ this.down_LF=function(){
 
     ctx.save();
 
-    ctx.fillStyle = color4;//background color
+    ctx.fillStyle = color1;//background color
     ctx.fillRect(4.0,4.0,70.0,36.0);
     ctx.fill();
 

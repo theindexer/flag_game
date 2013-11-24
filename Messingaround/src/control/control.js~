@@ -99,7 +99,7 @@ this.build = function(){
 
 	this.startBtn = new button(420, 240);
 	this.startBtn.buttonString = "Start Button";
-	this.startBtn.down_LF();
+	//this.startBtn.down_LF(startTimer());
 	this.parent.add(this.startBtn);
 	
 	this.resetBtn = new resetButton(420,310);
@@ -237,6 +237,7 @@ this.printBtn.bind('mousedown',function(){
 	window.print();	
 
 });
+
 
 
 this.setOriginBtn.bind('mousedown',function(){
