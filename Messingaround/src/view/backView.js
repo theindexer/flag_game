@@ -676,7 +676,7 @@ var ctx = canvas.getContext("2d");
 	  */
 	  ctx.font = "Bold 50.0px 'Arial'";
       ctx.fillStyle = "rgb(45, 48, 144)";
-      ctx.fillText("Flag Game", 270, 60);
+      ctx.fillText("Flag Game", 220, 60);
 	  ctx.save();
       ctx.restore();
       ctx.restore();
