@@ -6,7 +6,8 @@ function polyclass(left,top,coordsx,coordsy,w,h,backgroundcolor,designation){
 
 //create a canvas element for this object
 //all library fnction have an htmlElement member though the type of element may vary depedning pn the object
-this.htmlElement = document.createElement("canvas");
+    this.htmlElement = document.createElement("canvas");
+    this.htmlElement.setAttribute('id', designation);
 
 //define default button values
 //height and width are predefined for this button
@@ -222,15 +223,10 @@ this.over_LF=function(e){
 this.out_LF=function(){
     console.log("Out");
     var ctx = this.htmlElement.getContext("2d");
-    var color1 = "rgb(145, 207, 235)";
-    var color2 = "rgb(130, 130, 130)";
-    var color3 = "rgb(240, 240, 240)";
-    var color4 = "rgb(30, 103, 85)";
-	
-	
-	
-	
-	
+    var blue = "#0000CD";
+    var red = "#DC143C";
+    var green = "#008B00";
+    var yellow = "#FFF00";
 
     ctx.save();
     ctx.fillStyle = this.bgcolor;//background color
@@ -259,7 +255,7 @@ this.out_LF=function(){
     // run/Run
     ctx.restore();
     ctx.font = "Bold 13.5px 'Arial'";
-    ctx.fillStyle = color4;
+    ctx.fillStyle = yellow;
     ctx.fillText(this.buttonString, 10.4, 29.0);
     ctx.restore();
 }
@@ -267,14 +263,33 @@ this.out_LF=function(){
 this.down_LF=function(){
     console.log("Down");
     var ctx = this.htmlElement.getContext("2d");
-    var color1 = "rgb(145, 207, 235)";
-    var color2 = "rgb(130, 130, 130)";
-    var color3 = "rgb(240, 240, 240)";
-    var color4 = "rgb(30, 103, 85)";
+    var blue = "#0000CD";
+    var red = "#B0171F";
+    var green = "#008B00";
+    var yellow = "#FFFF00";
+    var white = "#000000";
 	
-
     ctx.save();
-    this.bgcolor = color4;
+    var blue_yes = document.getElementById("blue").checked;
+    var red_yes = document.getElementById("red").checked;
+    var green_yes = document.getElementById("green").checked;
+    var yellow_yes = document.getElementById("yellow").checked;
+    
+    if(blue_yes==true){
+	this.bgcolor = blue;
+    }
+    else if(red_yes==true){
+	this.bgcolor = red;
+    }
+    else if(green_yes==true){
+	this.bgcolor = green;
+    }
+    else if(yellow_yes==true){
+	this.bgcolor = yellow;
+    }
+    else{
+	this.bgcolor = white;
+    }
     ctx.fillStyle = this.bgcolor;//background color
     ctx.beginPath();
 	ctx.strokeStyle = '#000000';
@@ -301,7 +316,7 @@ this.down_LF=function(){
     // run/Run
     ctx.restore();
     ctx.font = "Bold 13.5px 'Arial'";
-    ctx.fillStyle = color4;
+    ctx.fillStyle = yellow;
     ctx.fillText(this.buttonString, 10.4, 29.0);
     ctx.restore();
 }
