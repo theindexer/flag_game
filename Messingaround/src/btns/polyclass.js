@@ -55,8 +55,8 @@ this.showButton=function(){this.htmlElement.style.display="inherit";}
 /*========================================================================================================*/
 //draw the upstate for the button (up state is the same as out state)
 this.up_LF=function(){
-	
-    var ctx = this.htmlElement.getContext("2d");
+    console.log("UP");
+ /*   var ctx = this.htmlElement.getContext("2d");
     
     var color1 = "rgb(145, 207, 235)";
     var color2 = "rgb(130, 130, 130)";
@@ -145,55 +145,20 @@ this.up_LF=function(){
     ctx.fill();
 	*/
     // run/Run
-    ctx.restore();
+  /*  ctx.restore();
     ctx.font = "Bold 13.5px 'Arial'";
     ctx.fillStyle = color4;
     ctx.fillText(this.buttonString, 10.4, 29.0);
-    ctx.restore();
+    ctx.restore();*/
 }
-/*========================================================================================================*/
-//draw the down state for the button
-this.down_LF=function(){
-	
-    var ctx = this.htmlElement.getContext("2d");
-    
-    var color1 = "rgb(145, 207, 235)";
-    var color2 = "rgb(90, 90, 90)";
-    var color3 = "rgb(130, 130, 130)";
-    var color4 = "rgb(30, 103, 85)";
+/*========================================================================================================*/ 
 
-    ctx.save();
-
-    ctx.fillStyle = this.bgcolor;//background color
-    ctx.beginPath();
-	var i = 0;
-	for(i=0; i < this.cx.length; i++)
-	{
-		if(i==0)
-		{
-			ctx.moveTo(this.cx[i],this.cy[i]);
-		}
-		else
-		{
-			ctx.lineTo(this.cx[i],this.cy[i]);
-		}
-	}
-	ctx.closePath();
-	ctx.fill();
-
-    // run/Run
-    ctx.restore();
-    ctx.font = "Bold 13.5px 'Arial'";
-    ctx.fillStyle = color4;
-    ctx.fillText(this.buttonString, 10.4, 29.0);
-    ctx.restore();    
-
-}
 /*========================================================================================================*/
 //draw the over state
 this.over_LF=function(e){
-
-    var xpos = e.pageX-this.left;
+    console.log("Over");
+/*
+        var xpos = e.pageX-this.left;
 	var ypos = e.pageY-this.top;
 	console.log(xpos);
 	var coords = [[0,0],[100,50],[50,100],[0,90]];
@@ -218,7 +183,7 @@ this.over_LF=function(e){
     ctx.save();
 
 	if(c){
-    ctx.fillStyle = black;//background color
+    ctx.fillStyle = color1;//background color
 	}
 	else{
 	ctx.fillStyle = this.bgcolor;//background color
@@ -250,12 +215,12 @@ this.over_LF=function(e){
     ctx.fillStyle = color4;
     ctx.fillText(this.buttonString, 10.4, 29.0);
     ctx.restore();
-	
+    */
 }
 /*========================================================================================================*/
 //draw the mouseout state (out state is the same as the up state)
 this.out_LF=function(){
-
+    console.log("Out");
     var ctx = this.htmlElement.getContext("2d");
     var color1 = "rgb(145, 207, 235)";
     var color2 = "rgb(130, 130, 130)";
@@ -299,6 +264,52 @@ this.out_LF=function(){
     ctx.restore();
 }
 /*========================================================================================================*/
+this.down_LF=function(){
+    console.log("Down");
+    var ctx = this.htmlElement.getContext("2d");
+    var color1 = "rgb(145, 207, 235)";
+    var color2 = "rgb(130, 130, 130)";
+    var color3 = "rgb(240, 240, 240)";
+    var color4 = "rgb(30, 103, 85)";
+	
+	
+	
+	
+	
+
+    ctx.save();
+    this.bgcolor = color4;
+    ctx.fillStyle = this.bgcolor;//background color
+    ctx.beginPath();
+	ctx.strokeStyle = '#000000';
+	ctx.lineWidth = 3;
+	var i = 0;
+	for(i=0; i < this.cx.length; i++)
+	{
+		if(i==0)
+		{
+			ctx.moveTo(this.cx[i],this.cy[i]);
+		}
+		else
+		{
+			ctx.lineTo(this.cx[i],this.cy[i]);
+		}
+	}
+	ctx.closePath();
+	ctx.fill();
+	ctx.stroke();
+	ctx.font = "Bold 30.0px 'Arial'";
+      ctx.fillStyle = "rgb(45, 48, 144)";
+      ctx.fillText(this.letter, 10, 30);
+   
+    // run/Run
+    ctx.restore();
+    ctx.font = "Bold 13.5px 'Arial'";
+    ctx.fillStyle = color4;
+    ctx.fillText(this.buttonString, 10.4, 29.0);
+    ctx.restore();
+}
+/*========*/
 this.bind=function(evnt,fctn){
 //determine the right event and assign to the right function
     if(evnt=="mousedown"){this.downFunction=fctn;}
@@ -329,7 +340,7 @@ this.CreateButtonEvents=function(c){
 //bind events for non internet explorer borswers
 if(window.platformFlag=="DSK"&&window.browserFlag=="NOT_IE"){
 this.htmlElement.addEventListener("mousedown",function(e){c.down_LF();c.downFunction(e);});
-this.htmlElement.addEventListener("mouseup",function(e){c.over_LF();c.upFunction(e);});
+this.htmlElement.addEventListener("mouseup",function(e){c.up_LF();c.upFunction(e);});
 this.htmlElement.addEventListener("mousemove",function(e){c.over_LF(e);c.overFunction(e);});
 //this.htmlElement.addEventListener("mousemoved",function(e){c.over_LF(e);c.overFunction(e);});
 this.htmlElement.addEventListener("mouseout",function(e){c.out_LF();c.outFunction(e);});
@@ -338,7 +349,7 @@ this.htmlElement.addEventListener("mouseout",function(e){c.out_LF();c.outFunctio
 //bind internet expolorer specific events
 if(window.platformFlag=="DSK"&&window.browserFlag=="IE"){
 this.htmlElement.attachEvent('onmousedown',function(e){c.down_LF();c.downFunction(e);});
-this.htmlElement.attachEvent('onmouseup',function(e){c.over_LF();c.upFunction(e);});
+this.htmlElement.attachEvent('onmouseup',function(e){c.up_LF();c.upFunction(e);});
 this.htmlElement.attachEvent('onmouseover',function(e){c.over_LF(e);c.overFunction(e);});
 this.htmlElement.attachEvent('onmouseout',function(e){c.out_LF();c.outFunction(e);});
 }
