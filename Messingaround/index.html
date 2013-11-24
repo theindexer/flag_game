@@ -50,11 +50,32 @@
 
 <body>
 <div id="header">
+ Play the <a href="index.html">Flag Game</a> - 
+ <a href="teacher.html">Instructions</a> -
+ <a href="objectives.html">Objectives</a>
+</div>
+ 
  <div id="container">
   <div id="parent"></div>
   <div id="data_div">
   <div id="timer_div"> 
-     <h1 id="timer">Time remaining: 3:00</h1>
+   <div id="time_select">
+     Set Timer: 
+     <select id="minutes">
+     <option value=1>1</option>
+     <option value=2>2</option>
+     <option value=3>3</option>
+     <option value=4>4</option>
+     <option value=5>5</option>
+     </select>m 
+     <select id="seconds">
+     <option value=0>0</option>
+     <option value=15>15</option>
+     <option value=30>30</option>
+     <option value=45>45</option>
+     </select>s 
+    </div>
+ <div id="timer">&nbsp;</div> 
      <button class="time_button" onclick="startTimer()">Start round</button>
      <button class="time_button" id="pause_btn" onclick="pauseTimer()">Pause</button>
      <button class="time_button" onclick="stopTimer()">Stop round</button>

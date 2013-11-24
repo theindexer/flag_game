@@ -14,8 +14,6 @@ var background = document.createElement("canvas");
 background.setAttribute("width","700");
 background.setAttribute("height","750");
 background.style.position = "absolute";
-background.style.top = "0px";
-background.style.left = "0px";
 background.style.backgroundColor = "#BDBDBD";
 parent.appendChild(background);//move down
 //-------------------------------------------

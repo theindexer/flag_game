@@ -15,14 +15,21 @@ function timer(){
 
     if (count<=0){
 	document.getElementById("timer").innerHTML = "Time's up!";
+      document.getElementById("time_select").style.visibility =''
 	clearInterval(counter);
 	return;
     }
 }
 function startTimer(){
-
     if (clicked === false){
+      document.getElementById("time_select").style.visibility ='hidden'
+      var mins = document.getElementById("minutes");
+      var minutes = mins.options[mins.selectedIndex].value
+      var secs = document.getElementById("seconds");
+      var seconds = secs.options[secs.selectedIndex].value
+      count = minutes * 60 + seconds * 1
 	counter = setInterval("timer()", 1000);
+        timer();
 	clicked = true;
     }
     else if (clicked === true){
@@ -33,6 +40,7 @@ function stopTimer(){
     clearInterval(counter);
     document.getElementById("timer").innerHTML = "Time's up!";
     clicked = false;
+    document.getElementById("time_select").style.visibility =''
     count = 180;
 }
 
