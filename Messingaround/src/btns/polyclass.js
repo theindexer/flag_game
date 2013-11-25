@@ -267,30 +267,98 @@ this.down_LF=function(){
     var red = "#B0171F";
     var green = "#008B00";
     var yellow = "#FFFF00";
-    var white = "#000000";
+    var white = "#FFFFFF";
 	
     ctx.save();
     var blue_yes = document.getElementById("blue").checked;
     var red_yes = document.getElementById("red").checked;
     var green_yes = document.getElementById("green").checked;
     var yellow_yes = document.getElementById("yellow").checked;
-    
-    if(blue_yes==true){
-	this.bgcolor = blue;
+
+    var pattern = document.createElement('canvas');
+    pattern.width = 80;
+    pattern.height = 80;
+    var pctx = pattern.getContext('2d');
+
+    if(blue_yes==true && red_yes==false && yellow_yes==false && green_yes==false){
+	ctx.fillStyle = blue;
     }
-    else if(red_yes==true){
-	this.bgcolor = red;
+    else if(red_yes==true && blue_yes==false && green_yes==false && yellow_yes==false){
+	ctx.fillStyle = red;
     }
-    else if(green_yes==true){
-	this.bgcolor = green;
+    else if(green_yes==true && blue_yes==false && yellow_yes==false && red_yes==false){
+	ctx.fillStyle = green;
     }
-    else if(yellow_yes==true){
-	this.bgcolor = yellow;
+    else if(yellow_yes==true && blue_yes==false && red_yes==false && green+yes==false){
+	ctx.fillStyle = yellow;
+    }
+        if(blue_yes==true && red_yes==true && yellow_yes==false && green_yes==false){
+	pctx.fillStyle = blue;
+	    pctx.fillRect(0, 0, 40, 40);
+	    pctx.fillStyle = red;
+	    pctx.fillRect(40, 40, 40, 40);
+    }
+    if(blue_yes==true && red_yes==false && yellow_yes==true && green_yes==false){
+	pctx.fillStyle = blue;
+	    pctx.fillRect(0, 0, 40, 40);
+	    pctx.fillStyle = yellow;
+	    pctx.fillRect(40, 40, 40, 40);
+
+    }
+    if(blue_yes==true && red_yes==false && yellow_yes==false && green_yes==true){
+	pctx.fillStyle = blue;
+	    pctx.fillRect(0, 0, 40, 40);
+	    pctx.fillStyle = green;
+	    pctx.fillRect(40, 40, 40, 40);
+
+    }
+    if(blue_yes==false && red_yes==true && yellow_yes==true && green_yes==false){
+	pctx.fillStyle = red;
+	    pctx.fillRect(0, 0, 40, 40);
+	    pctx.fillStyle = yellow;
+	    pctx.fillRect(40, 40, 40, 40);
+
+    }
+    if(blue_yes==false && red_yes==true && yellow_yes==false && green_yes==true){
+	pctx.fillStyle = red;
+	pctx.fillRect(40, 0, 40, 40);
+	    pctx.fillRect(0, 0, 40, 40);
+	    pctx.fillStyle = green;
+	pctx.fillRect(0, 40, 40, 40);
+	    pctx.fillRect(40, 40, 40, 40);
+		var pattern = ctx.createPattern(pattern, "repeat");
+	ctx.fillStyle = pattern;
+    }
+    if(blue_yes==false && red_yes==false && yellow_yes==true && green_yes==true){
+	pctx.fillStyle = yellow;
+	    pctx.fillRect(0, 0, 40, 40);
+	pctx.fillRect(40, 0, 40, 40);
+	    pctx.fillStyle = green;
+	    pctx.fillRect(40, 40, 40, 40);
+	pctx.fillRect(0, 40, 40, 40);
+	var pattern = ctx.createPattern(pattern, "repeat");
+	ctx.fillStyle = pattern;
+
+    }
+    if(blue_yes==true && red_yes==true && yellow_yes==true && green_yes==false){
+	pctx.fillStyle = blue;
+	pctx.fill
+    }
+    if(blue_yes==true && red_yes==true && yellow_yes==false && green_yes==true){
+	ctx.fillStyle = blue;
+    }
+    if(blue_yes==true && red_yes==false && yellow_yes==true && green_yes==true){
+	ctx.fillStyle = blue;
+    }
+    if(blue_yes==false && red_yes==true && yellow_yes==true && green_yes==true){
+	ctx.fillStyle = blue;
+    }
+    if(blue_yes==true && red_yes==true && yellow_yes==true && green_yes==true){
+	ctx.fillStyle = blue;
     }
     else{
-	this.bgcolor = white;
+	    ctx.fillStyle = white;
     }
-    ctx.fillStyle = this.bgcolor;//background color
     ctx.beginPath();
 	ctx.strokeStyle = '#000000';
 	ctx.lineWidth = 3;
