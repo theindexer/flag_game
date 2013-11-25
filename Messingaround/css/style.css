@@ -9,6 +9,11 @@
   position:relative;
 }
 
+#flag_canvas {
+  border-right-style:solid;
+  border-right-width:1px;
+  border-right-color:#CCCCCC;
+}
 #data_div {
   float:left;
   margin-left:700px;

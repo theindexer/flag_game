@@ -40,7 +40,7 @@ this.build = function(){
 	
 	this.parent = new parent("parent");
         var X_OFFSET = 50;	
-	
+        var Y_OFFSET = 100;	
 	this.grid = new grid();
 	//this.parent.add(this.grid);
 
@@ -116,25 +116,25 @@ this.build = function(){
 	this.p2 = new polyclass(500,400,[0,100,50,0],[0,50,100,90]);
 	this.parent.add(this.p2);
 	*/
-	this.p1 = new polyclass(X_OFFSET,100,[0,100,100,0],[0,0,600,600],100,600,'#ffffff','a');
+	this.p1 = new polyclass(X_OFFSET,Y_OFFSET,[0,100,100,0],[0,0,600,600],100,600,'#ffffff','a');
 	this.parent.add(this.p1);
-	this.p1 = new polyclass(X_OFFSET + 500,100,[0,100,100,0],[0,0,600,600],100,600,'#ffffff','b');
+	this.p1 = new polyclass(X_OFFSET + 500,Y_OFFSET,[0,100,100,0],[0,0,600,600],100,600,'#ffffff','b');
 	this.parent.add(this.p1);
-	this.p1 = new polyclass(X_OFFSET + 100,100,[0,400,400,0],[0,0,100,100],400,100,'#ffffff','c');
+	this.p1 = new polyclass(X_OFFSET + 100,Y_OFFSET,[0,400,400,0],[0,0,100,100],400,100,'#ffffff','c');
 	this.parent.add(this.p1);
-	this.p1 = new polyclass(X_OFFSET + 100,600,[0,400,400,0],[0,0,100,100],400,100,'#ffffff','d');
+	this.p1 = new polyclass(X_OFFSET + 100,Y_OFFSET + 500,[0,400,400,0],[0,0,100,100],400,100,'#ffffff','d');
 	this.parent.add(this.p1);
-	this.p1 = new polyclass(X_OFFSET + 100,200,[0,200,200,0],[0,0,200,200],200,200,'#ffffff','e');
+	this.p1 = new polyclass(X_OFFSET + 100,Y_OFFSET + 100,[0,200,200,0],[0,0,200,200],200,200,'#ffffff','e');
 	this.parent.add(this.p1);
-	this.p1 = new polyclass(X_OFFSET + 300,200,[0,200,200,0],[0,0,400,400],200,400,'#ffffff','f');
+	this.p1 = new polyclass(X_OFFSET + 300,Y_OFFSET + 100,[0,200,200,0],[0,0,400,400],200,400,'#ffffff','f');
 	this.parent.add(this.p1);
-	this.p1 = new polyclass(X_OFFSET + 100,400,[0,100,100,0],[0,0,100,100],100,100,'#ffffff','g');
+	this.p1 = new polyclass(X_OFFSET + 100,Y_OFFSET + 300,[0,100,100,0],[0,0,100,100],100,100,'#ffffff','g');
 	this.parent.add(this.p1);
-	this.p1 = new polyclass(X_OFFSET + 200,400,[0,100,100,0],[0,0,100,100],100,100,'#ffffff','h');
+	this.p1 = new polyclass(X_OFFSET + 200,Y_OFFSET + 300,[0,100,100,0],[0,0,100,100],100,100,'#ffffff','h');
 	this.parent.add(this.p1);
-	this.p1 = new polyclass(X_OFFSET + 100,500,[0,100,100,0],[0,0,100,100],100,100,'#ffffff','i');
+	this.p1 = new polyclass(X_OFFSET + 100,Y_OFFSET + 400,[0,100,100,0],[0,0,100,100],100,100,'#ffffff','i');
 	this.parent.add(this.p1);
-	this.p1 = new polyclass(X_OFFSET + 200,500,[0,100,100,0],[0,0,100,100],100,100,'#ffffff','j');
+	this.p1 = new polyclass(X_OFFSET + 200,Y_OFFSET + 400,[0,100,100,0],[0,0,100,100],100,100,'#ffffff','j');
 	this.parent.add(this.p1);
 	
 	
