@@ -56,7 +56,6 @@ this.showButton=function(){this.htmlElement.style.display="inherit";}
 /*========================================================================================================*/
 //draw the upstate for the button (up state is the same as out state)
 this.up_LF=function(){
-    console.log("UP");
  /*   var ctx = this.htmlElement.getContext("2d");
     
     var color1 = "rgb(145, 207, 235)";
@@ -157,7 +156,6 @@ this.up_LF=function(){
 /*========================================================================================================*/
 //draw the over state
 this.over_LF=function(e){
-    console.log("Over");
 /*
         var xpos = e.pageX-this.left;
 	var ypos = e.pageY-this.top;
@@ -221,7 +219,6 @@ this.over_LF=function(e){
 /*========================================================================================================*/
 //draw the mouseout state (out state is the same as the up state)
 this.out_LF=function(){
-    console.log("Out");
     var ctx = this.htmlElement.getContext("2d");
     var blue = "#0000CD";
     var red = "#DC143C";
@@ -261,36 +258,130 @@ this.out_LF=function(){
 }
 /*========================================================================================================*/
 this.down_LF=function(){
-    console.log("Down");
     var ctx = this.htmlElement.getContext("2d");
     var blue = "#0000CD";
     var red = "#B0171F";
     var green = "#008B00";
     var yellow = "#FFFF00";
-    var white = "#000000";
+    var white = "#FFFFFF";
 	
     ctx.save();
     var blue_yes = document.getElementById("blue").checked;
     var red_yes = document.getElementById("red").checked;
     var green_yes = document.getElementById("green").checked;
     var yellow_yes = document.getElementById("yellow").checked;
-    
-    if(blue_yes==true){
-	this.bgcolor = blue;
+
+    var pattern = document.createElement('canvas');
+    pattern.width = 40;
+    pattern.height = 100;
+    var pctx = pattern.getContext('2d');
+    count = blue_yes + red_yes + green_yes + yellow_yes
+    var stripeHeight = pattern.height / count
+    var currentY = 0
+    if(blue_yes) {
+      pctx.fillStyle = blue;
+      pctx.fillRect(0,currentY,40,stripeHeight);
+      currentY += stripeHeight;
     }
-    else if(red_yes==true){
-	this.bgcolor = red;
+
+    if(red_yes) {
+      pctx.fillStyle = red;
+      pctx.fillRect(0,currentY,40,stripeHeight);
+      currentY += stripeHeight;
     }
-    else if(green_yes==true){
-	this.bgcolor = green;
+
+    if(green_yes) {
+      pctx.fillStyle = green;
+      pctx.fillRect(0,currentY,40,stripeHeight);
+      currentY += stripeHeight;
     }
-    else if(yellow_yes==true){
-	this.bgcolor = yellow;
+    if(yellow_yes) {
+      pctx.fillStyle = yellow;
+      pctx.fillRect(0,currentY,40,stripeHeight);
+      currentY += stripeHeight;
     }
-    else{
-	this.bgcolor = white;
+    var pattern = ctx.createPattern(pattern, "repeat");
+    ctx.fillStyle = pattern;
+   /**
+    if(blue_yes==true && red_yes==false && yellow_yes==false && green_yes==false){
+	ctx.fillStyle = blue;
     }
-    ctx.fillStyle = this.bgcolor;//background color
+    else if(red_yes==true && blue_yes==false && green_yes==false && yellow_yes==false){
+	ctx.fillStyle = red;
+    }
+    else if(green_yes==true && blue_yes==false && yellow_yes==false && red_yes==false){
+	ctx.fillStyle = green;
+    }
+    else if(yellow_yes==true && blue_yes==false && red_yes==false && green+yes==false){
+	ctx.fillStyle = yellow;
+    }
+        if(blue_yes==true && red_yes==true && yellow_yes==false && green_yes==false){
+	pctx.fillStyle = blue;
+	    pctx.fillRect(0, 0, 40, 40);
+	    pctx.fillStyle = red;
+	    pctx.fillRect(40, 40, 40, 40);
+    }
+    if(blue_yes==true && red_yes==false && yellow_yes==true && green_yes==false){
+	pctx.fillStyle = blue;
+	    pctx.fillRect(0, 0, 40, 40);
+	    pctx.fillStyle = yellow;
+	    pctx.fillRect(40, 40, 40, 40);
+
+    }
+    if(blue_yes==true && red_yes==false && yellow_yes==false && green_yes==true){
+	pctx.fillStyle = blue;
+	    pctx.fillRect(0, 0, 40, 40);
+	    pctx.fillStyle = green;
+	    pctx.fillRect(40, 40, 40, 40);
+
+    }
+    if(blue_yes==false && red_yes==true && yellow_yes==true && green_yes==false){
+	pctx.fillStyle = red;
+	    pctx.fillRect(0, 0, 40, 40);
+	    pctx.fillStyle = yellow;
+	    pctx.fillRect(40, 40, 40, 40);
+
+    }
+    if(blue_yes==false && red_yes==true && yellow_yes==false && green_yes==true){
+	pctx.fillStyle = red;
+	pctx.fillRect(40, 0, 40, 40);
+	    pctx.fillRect(0, 0, 40, 40);
+	    pctx.fillStyle = green;
+	pctx.fillRect(0, 40, 40, 40);
+	    pctx.fillRect(40, 40, 40, 40);
+		var pattern = ctx.createPattern(pattern, "repeat");
+	ctx.fillStyle = pattern;
+    }
+    if(blue_yes==false && red_yes==false && yellow_yes==true && green_yes==true){
+	pctx.fillStyle = yellow;
+	    pctx.fillRect(0, 0, 40, 40);
+	pctx.fillRect(40, 0, 40, 40);
+	    pctx.fillStyle = green;
+	    pctx.fillRect(40, 40, 40, 40);
+	pctx.fillRect(0, 40, 40, 40);
+	var pattern = ctx.createPattern(pattern, "repeat");
+	ctx.fillStyle = pattern;
+
+    }
+    if(blue_yes==true && red_yes==true && yellow_yes==true && green_yes==false){
+	pctx.fillStyle = blue;
+	pctx.fill
+    }
+    if(blue_yes==true && red_yes==true && yellow_yes==false && green_yes==true){
+	ctx.fillStyle = blue;
+    }
+    if(blue_yes==true && red_yes==false && yellow_yes==true && green_yes==true){
+	ctx.fillStyle = blue;
+    }
+    if(blue_yes==false && red_yes==true && yellow_yes==true && green_yes==true){
+	ctx.fillStyle = blue;
+    }
+    if(blue_yes==true && red_yes==true && yellow_yes==true && green_yes==true){
+	ctx.fillStyle = blue;
+    } 
+    else {
+	    ctx.fillStyle = white;
+    } **/
     ctx.beginPath();
 	ctx.strokeStyle = '#000000';
 	ctx.lineWidth = 3;
