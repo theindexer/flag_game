@@ -229,7 +229,7 @@ this.out_LF=function(){
     ctx.fillStyle = this.bgcolor;//background color
     ctx.beginPath();
 	ctx.strokeStyle = '#000000';
-	ctx.lineWidth = 3;
+	ctx.lineWidth = 10;
 	var i = 0;
 	for(i=0; i < this.cx.length; i++)
 	{
@@ -246,7 +246,7 @@ this.out_LF=function(){
 	ctx.fill();
 	ctx.stroke();
 	ctx.font = "Bold 30.0px 'Arial'";
-      ctx.fillStyle = "rgb(45, 48, 144)";
+      ctx.fillStyle = "rgb(0,0,0)";
       ctx.fillText(this.letter, 10, 30);
    
     // run/Run
@@ -302,6 +302,7 @@ this.down_LF=function(){
     }
     var pattern = ctx.createPattern(pattern, "repeat");
     ctx.fillStyle = pattern;
+    this.bgcolor = pattern;
    /**
     if(blue_yes==true && red_yes==false && yellow_yes==false && green_yes==false){
 	ctx.fillStyle = blue;
@@ -384,7 +385,7 @@ this.down_LF=function(){
     } **/
     ctx.beginPath();
 	ctx.strokeStyle = '#000000';
-	ctx.lineWidth = 3;
+	ctx.lineWidth = 10;
 	var i = 0;
 	for(i=0; i < this.cx.length; i++)
 	{
@@ -401,7 +402,7 @@ this.down_LF=function(){
 	ctx.fill();
 	ctx.stroke();
 	ctx.font = "Bold 30.0px 'Arial'";
-      ctx.fillStyle = "rgb(45, 48, 144)";
+      ctx.fillStyle = "rgb(0,0,0)";
       ctx.fillText(this.letter, 10, 30);
    
     // run/Run
