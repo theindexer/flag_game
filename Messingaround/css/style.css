@@ -1,6 +1,12 @@
+#header {
+ border-bottom-width:2px;
+ border-bottom-style:solid;
+ padding-bottom:3px;
+}
 #parent {
   float:left;
   width:750px;
+  position:relative;
 }
 
 #data_div {
@@ -10,8 +16,9 @@
   width:350px;
 }
 
-#timer_div {
-
+#time_select {
+  text-align:center;
+  font-size:18px;
 }
 
 #color_stuff {
@@ -27,6 +34,7 @@
 
 #timer {
   text-align:center;
+  font-size:24px;
 }
 
 .time_button {
