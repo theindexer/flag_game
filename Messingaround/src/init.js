@@ -14,7 +14,7 @@ var background = document.createElement("canvas");
 background.setAttribute("width","700");
 background.setAttribute("height","750");
 background.style.position = "absolute";
-background.style.backgroundColor = "#DDDDDD";
+//background.style.backgroundColor = "#DDDDDD";
 background.setAttribute("id","flag_canvas");
 parent.appendChild(background);//move down
 //-------------------------------------------
